@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { motion } from "framer-motion";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col justify-center items-center w-screen h-screen bg-gray-900">
+      <motion.div
+        drag={true}
+        dragConstraints={{ left: -100, right: 100, top:0, bottom:0 }}
+        whileHover={{
+          scale: 1.2,
+          transition: { duration: 0.35 },
+        }}
+        whileTap={{ scale: 0.9, transition: { duration: 0.25 } }}
+      >
+        <h1 className="text-3xl font-bold text-white ">Programming Homies! 👨🏻‍💻👩🏽‍💻</h1>
+      </motion.div>
     </div>
   );
 }
