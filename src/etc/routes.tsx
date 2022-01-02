@@ -35,7 +35,7 @@ const createRoutes = () => {
           path='/dashboard'
           element={
             <ProtectedRoute>
-              <OnboardingPage />
+              <LandingPage />
             </ProtectedRoute>
           }
         />

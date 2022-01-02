@@ -18,3 +18,8 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.onboarding-select input[type="text"]:focus {
+  box-shadow: none;
+  outline: none;
+}

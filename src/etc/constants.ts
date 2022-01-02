@@ -7,5 +7,6 @@ export type HeaderLinkType = {
 export const HEADER_LINKS = [
   { to: "/", label: "Home", shouldUserSee: true },
   { to: "/signup", label: "Sign Up", shouldUserSee: false },
-  { to: "/login", label: "Login", shouldUserSee: false }
+  { to: "/login", label: "Login", shouldUserSee: false },
+  { to: "/onboarding", label: "Onboarding", shouldUserSee: true }
 ];
