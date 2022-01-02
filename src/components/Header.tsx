@@ -1,25 +1,35 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import uniqid from "uniqid";
+import { HEADER_LINKS } from "../etc/constants";
+import useAuthStore from "../stores/AuthStore";
 import ThemeToggle from "./ThemeToggle";
 
-const ROUTES = [
-  { to: "/", label: "Home" },
-];
-
 function Header() {
+  const { user } = useAuthStore();
   const [isOpen, setIsOpen] = useState(false);
+  const [links, setLinks] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // TODO Add a check to filter links.
+
   return (
     <>
       <div className='flex flex-row justify-between items-center w-full h-12 px-4 bg-gray-200 dark:bg-gray-700 min-h-[3rem]'>
         <motion.h1
           className='text-black dark:text-white font-extrabold text-xl cursor-default'
           whileHover={{ scale: 1.2 }}>
-          <span className='cursor-pointer' onClick={() => navigate("/")}>
+          <span
+            className='cursor-pointer hidden md:inline-flex'
+            onClick={() => navigate("/")}>
             ProgrammingHomies
+          </span>
+          <span
+            className='cursor-pointer inline-flex md:hidden'
+            onClick={() => navigate("/")}>
+            PH
           </span>
           {location.pathname !== "/" && (
             <span className='font-light tracking-tighter'>
@@ -61,8 +71,8 @@ function Header() {
             className={
               "absolute w-full md:w-1/3 flex flex-col justify-center items-center bg-gray-200 dark:bg-gray-700"
             }>
-            {ROUTES.map((route, index) => {
-              if (index === ROUTES.length - 1) {
+            {HEADER_LINKS.map((route, index) => {
+              if (index === HEADER_LINKS.length - 1) {
                 return (
                   <Link
                     key={uniqid()}
