@@ -2,16 +2,24 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import uniqid from "uniqid";
-import { HEADER_LINKS } from "../etc/constants";
+import { HeaderLinkType, HEADER_LINKS } from "../etc/constants";
 import useAuthStore from "../stores/AuthStore";
 import ThemeToggle from "./ThemeToggle";
 
 function Header() {
   const { user } = useAuthStore();
   const [isOpen, setIsOpen] = useState(false);
-  const [links, setLinks] = useState([]);
+  const [links, setLinks] = useState<Array<HeaderLinkType>>([]);
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      setLinks(HEADER_LINKS.filter(item => item.shouldUserSee === true));
+    } else {
+      setLinks(HEADER_LINKS);
+    }
+  }, []);
 
   // TODO Add a check to filter links.
 
@@ -37,6 +45,11 @@ function Header() {
             </span>
           )}
         </motion.h1>
+        {user && (
+          <span className='font-light tracking-tighter text-black dark:text-white'>
+            Auth User: {user?.username}
+          </span>
+        )}
         <div className='flex flex-row space-x-4'>
           <ThemeToggle />
           <motion.svg
@@ -71,8 +84,8 @@ function Header() {
             className={
               "absolute w-full md:w-1/3 flex flex-col justify-center items-center bg-gray-200 dark:bg-gray-700"
             }>
-            {HEADER_LINKS.map((route, index) => {
-              if (index === HEADER_LINKS.length - 1) {
+            {links.map((route, index) => {
+              if (index === links.length - 1) {
                 return (
                   <Link
                     key={uniqid()}
