@@ -1,6 +1,12 @@
 module.exports = {
   content: ["./src/**/*.{ts,tsx}"],
   darkMode: "class",
-  theme: {},
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["Inter", "sans-serif"]
+      }
+    }
+  },
   plugins: []
 };
