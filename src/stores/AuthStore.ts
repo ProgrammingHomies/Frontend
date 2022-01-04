@@ -1,20 +1,33 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
 
-type userType = { token: string; id: number; username: string; email: string };
+type userType = {
+  email: string;
+  nickname: string | undefined;
+  birthday: string | undefined;
+  links:
+    | {
+        github: string | undefined;
+        linkendin: string | undefined;
+      }
+    | undefined;
+  bio: string | undefined;
+};
 
 type AuthStore = {
   user: userType | undefined;
   setUser: (newUser: userType) => void;
 };
 
-export const useAuthStore = create(
+export const useAuthStore = create<AuthStore>(
   persist(
     (set, get) => ({
       // @ts-ignore
       user: get()?.user,
       setUser: (newUser: userType) => {
-        set({ user: newUser });
+        set(state => ({
+          user: newUser
+        }));
       }
     }),
     {

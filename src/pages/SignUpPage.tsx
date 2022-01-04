@@ -11,12 +11,13 @@ function SignUpPage() {
   const [password, setPassword] = useState("");
 
   const onSubmit = (e: any) => {
-    const data = {
+    setUser({
       email,
-      password
-    };
-
-    setUser({ id: 1, token: "hey", username: "berke", email });
+      nickname: undefined,
+      birthday: undefined,
+      links: undefined,
+      bio: undefined
+    });
     navigate("/onboarding", { replace: true });
     e.preventDefault();
   };

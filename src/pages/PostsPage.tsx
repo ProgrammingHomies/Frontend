@@ -3,7 +3,13 @@ import { useEffect } from "react";
 import Header from "../components/Header";
 import useAuthStore from "../stores/AuthStore";
 
-function LandingPage() {
+function PostsPage() {
+  const { user } = useAuthStore();
+
+  useEffect(() => {
+    console.log(user);
+  }, []);
+
   return (
     <>
       <Header></Header>
@@ -15,10 +21,12 @@ function LandingPage() {
             type: "spring"
           }}
           initial={{ opacity: 0, translateY: -20 }}
-          animate={{ opacity: 1, translateY: 0 }}></motion.div>
+          animate={{ opacity: 1, translateY: 0 }}>
+            
+          </motion.div>
       </div>
     </>
   );
 }
 
-export default LandingPage;
+export default PostsPage;

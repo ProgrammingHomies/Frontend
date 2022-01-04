@@ -1,8 +1,9 @@
-import Select from "react-select";
+import CreatableSelect from "react-select/creatable";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
+import useAuthStore from "../stores/AuthStore";
 
 const options = [
   { value: "react", label: "React" },
@@ -17,22 +18,25 @@ function OnboardingPage() {
   const [github, setGithub] = useState("");
   const [linkendin, setLinkendin] = useState("");
   const [bio, setBio] = useState("");
+  const [selected, setSelected] = useState({});
+  const { user, setUser } = useAuthStore();
 
   const onSubmit = (e: any) => {
-    const data = {
+    setUser({
+      // @ts-ignore
+      email: user?.email,
       nickname,
       birthday,
-      github,
-      linkendin,
+      links: {
+        github,
+        linkendin
+      },
       bio
-    };
+    });
 
-    console.log(data);
-    navigate("/dashboard");
+    navigate("/posts");
     e.preventDefault();
   };
-
-  // TODO Select needs component styling.
 
   return (
     <>
@@ -107,13 +111,6 @@ function OnboardingPage() {
                 onChange={e => {
                   setBio(e.target.value);
                 }}></textarea>
-            </div>
-            <div className='w-full'>
-              <Select
-                options={options}
-                isMulti={true}
-                className='onboarding-select'
-              />
             </div>
             <div className='w-full'>
               <input

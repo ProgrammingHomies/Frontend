@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -5,10 +6,12 @@ import {
   Navigate,
   useLocation
 } from "react-router-dom";
+import PostsPage from "../pages/PostsPage";
 import LandingPage from "../pages/LandingPage";
 import LoginPage from "../pages/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import OnboardingPage from "../pages/OnboardingPage";
+import SignOut from "../pages/SignOut";
 import SignUpPage from "../pages/SignUpPage";
 import useAuthStore from "../stores/AuthStore";
 
@@ -32,12 +35,16 @@ const createRoutes = () => {
           }
         />
         <Route
-          path='/dashboard'
+          path='/posts'
           element={
             <ProtectedRoute>
-              <LandingPage />
+              <PostsPage />
             </ProtectedRoute>
           }
+        />
+        <Route
+          path='/signout'
+          element={<ProtectedRoute>{<SignOut />}</ProtectedRoute>}
         />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>

@@ -17,11 +17,9 @@ function Header() {
     if (user) {
       setLinks(HEADER_LINKS.filter(item => item.shouldUserSee === true));
     } else {
-      setLinks(HEADER_LINKS);
+      setLinks(HEADER_LINKS.filter(item => item.shouldGuestSee === true));
     }
   }, []);
-
-  // TODO Add a check to filter links.
 
   return (
     <>
@@ -45,9 +43,9 @@ function Header() {
             </span>
           )}
         </motion.h1>
-        {user && (
+        {user && location.pathname !== "/onboarding" && (
           <span className='font-light tracking-tighter text-black dark:text-white'>
-            Auth User: {user?.username}
+            Auth User: {user?.nickname}
           </span>
         )}
         <div className='flex flex-row space-x-4'>

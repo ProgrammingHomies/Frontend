@@ -11,13 +11,19 @@ function LoginPage() {
   const [password, setPassword] = useState("");
 
   const onSubmit = (e: any) => {
-    const data = {
+    // TODO login request will be here
+    setUser({
       email,
-      password
-    };
+      nickname: "berke",
+      birthday: "sdfsdfds",
+      links: {
+        github: "g3vxy",
+        linkendin: "g3vxy"
+      },
+      bio: "gdfgd"
+    });
 
-    setUser({ id: 1, token: "hey", username: "berke", email });
-    navigate("/onboarding", { replace: true });
+    navigate("/posts", { replace: true });
     e.preventDefault();
   };
 

@@ -5,8 +5,24 @@ export type HeaderLinkType = {
 };
 
 export const HEADER_LINKS = [
-  { to: "/", label: "Home", shouldUserSee: true },
-  { to: "/signup", label: "Sign Up", shouldUserSee: false },
-  { to: "/login", label: "Login", shouldUserSee: false },
-  { to: "/onboarding", label: "Onboarding", shouldUserSee: true }
+  { to: "/", label: "Home", shouldUserSee: true, shouldGuestSee: true },
+  {
+    to: "/signup",
+    label: "Sign Up",
+    shouldUserSee: false,
+    shouldGuestSee: true
+  },
+  { to: "/login", label: "Login", shouldUserSee: false, shouldGuestSee: true },
+  {
+    to: "/posts",
+    label: "Posts",
+    shouldUserSee: true,
+    shouldGuestSee: false
+  },
+  {
+    to: "/signout",
+    label: "Sign Out",
+    shouldUserSee: true,
+    shouldGuestSee: false
+  }
 ];
