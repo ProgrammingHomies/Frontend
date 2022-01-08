@@ -1,22 +1,39 @@
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import Code from "../components/Code/Code";
 import Header from "../components/Header";
-import useAuthStore from "../stores/AuthStore";
 
-function LandingPage() {
+const LANDING_PAGE_CODE = `function LandingPage() {
   return (
     <>
       <Header></Header>
-      <div className='container h-full flex flex-col justify-center items-center'>
         <motion.div
-          className='flex flex-col w-3/4 mx-auto'
+          className='container h-full flex flex-col justify-center items-center w-3/4 mx-auto'
           key='landingPageTitle'
           transition={{
             type: "spring"
           }}
           initial={{ opacity: 0, translateY: -20 }}
-          animate={{ opacity: 1, translateY: 0 }}></motion.div>
-      </div>
+          animate={{ opacity: 1, translateY: 0 }}>
+          <Code code={LANDING_PAGE_CODE} language={"js"}></Code>
+          </motion.div>
+    </>
+  );
+}`
+
+function LandingPage() {
+  return (
+    <>
+      <Header></Header>
+        <motion.div
+          className='container h-full flex flex-col justify-center items-center w-full md:w-3/4 mx-auto'
+          key='landingPageTitle'
+          transition={{
+            type: "spring"
+          }}
+          initial={{ opacity: 0, translateY: -20 }}
+          animate={{ opacity: 1, translateY: 0 }}>
+          <Code code={LANDING_PAGE_CODE} language={"js"}></Code>
+          </motion.div>
     </>
   );
 }

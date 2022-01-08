@@ -26,3 +26,45 @@ export const HEADER_LINKS = [
     shouldGuestSee: false
   }
 ];
+
+export const CODE_EXAMPLE = `function fibonacci(num) {
+  if(num < 2) {
+      return num;
+  }
+  else {
+      return fibonacci(num-1) + fibonacci(num - 2);
+  }
+}`;
+
+export const MOCK_DATA = [
+  {
+    title: "Programming Hommies",
+    bio: `First paragraph.
+    
+    Second paragraph.
+    
+    Programming Homies body.`,
+    createdAt: Date.now(),
+    updatedAt: Date.now(),
+    tags: [
+      { title: "React", color: "sky" },
+      { title: "Typescript", color: "blue" }
+    ],
+    id: 1
+  },
+  {
+    title: "Code Fellas",
+    bio: `First paragraph.
+    
+    Second paragraph.
+    
+    Code Fellas body.`,
+    createdAt: Date.now(),
+    updatedAt: Date.now(),
+    tags: [
+      { title: "Vue", color: "green" },
+      { title: "Javascript", color: "yellow" }
+    ],
+    id: 2
+  }
+];

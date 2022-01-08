@@ -38,7 +38,7 @@ function Header() {
             PH
           </span>
           {location.pathname !== "/" && (
-            <span className='font-light tracking-tighter'>
+            <span className='font-light tracking-tighter cursor-pointer' onClick={() => navigate(-1)}>
               {location.pathname}
             </span>
           )}

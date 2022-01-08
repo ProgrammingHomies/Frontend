@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Code from "../components/Code/Code";
 import Header from "../components/Header";
+import { CODE_EXAMPLE } from "../etc/constants";
 import useAuthStore from "../stores/AuthStore";
 
 function LoginPage() {
@@ -15,12 +17,12 @@ function LoginPage() {
     setUser({
       email,
       nickname: "berke",
-      birthday: "sdfsdfds",
+      birthday: Date.now().toString(),
       links: {
         github: "g3vxy",
         linkendin: "g3vxy"
       },
-      bio: "gdfgd"
+      bio: "Test bio"
     });
 
     navigate("/posts", { replace: true });
@@ -79,7 +81,7 @@ function LoginPage() {
           </form>
         </motion.div>
         <div className='hidden lg:flex lg:w-1/2 items-center justify-center'>
-          <h1 className='text-center'>Login Image</h1>
+          <Code code={CODE_EXAMPLE} language={"javascript"} />
         </div>
       </div>
     </>
