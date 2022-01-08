@@ -23,11 +23,11 @@ function PostDetail() {
       initial={{ opacity: 0, translateY: -20 }}
       animate={{ opacity: 1, translateY: 0 }}>
       <div>
-        <h2 className='font-bold text-xl md:text-2xl text-center'>{data?.title}</h2>
+        <h2 className='font-bold text-xl md:text-2xl text-center text-black dark:text-white'>{data?.title}</h2>
       </div>
       <div className="px-2 indent-4 flex flex-col gap-y-2">
         {data?.bio.split(/\r?\n/).map(paragraph => {
-          return <p key={uniqid()}>{paragraph}</p>
+          return <p key={uniqid()} className="text-black dark:text-white">{paragraph}</p>
         })}
       </div>
     </motion.div>
