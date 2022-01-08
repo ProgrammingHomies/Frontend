@@ -10,7 +10,7 @@ const usePrism = (theme: ThemeTypes) => {
       require("prismjs/themes/prism-dark.css");
     }
     Prism.highlightAll();
-  }, []);
+  }, [theme]);
 };
 
 export default usePrism;
