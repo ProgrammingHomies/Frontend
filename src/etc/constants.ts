@@ -20,6 +20,12 @@ export const HEADER_LINKS = [
     shouldGuestSee: false
   },
   {
+    to: "/myposts",
+    label: "My Posts",
+    shouldUserSee: true,
+    shouldGuestSee: false
+  },
+  {
     to: "/signout",
     label: "Sign Out",
     shouldUserSee: true,
