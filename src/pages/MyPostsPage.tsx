@@ -1,6 +1,12 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion/types/render/dom/motion";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
+import uniqid from "uniqid";
 import Header from "../components/Header";
-// import {MOCK_DATA} from "../../etc/constants";
+import usePostDetail from "../services/api/usePostDetail";
+import LoadingPage from "./LoadingPage";
+
+
+
 
 function MyPostsPage() {
     const navigate = useNavigate()
@@ -9,7 +15,7 @@ function MyPostsPage() {
       <>
         <Header></Header>
         <div className='container h-full flex flex-col justify-center items-center'>
-          TEST
+        
         </div>
       </>
     );
