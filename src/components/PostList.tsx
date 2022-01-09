@@ -40,7 +40,7 @@ function PostList() {
               {item.tags.map((tag: any) => (
                 <div
                   key={uniqid()}
-                  className={`flex flex-row justify-center items-center h-10 w-24 text-center rounded-xl text-black dark:text-white bg-${tag.color}-400`}>
+                  className={`flex flex-row justify-center items-center h-10 w-24 text-center rounded-xl text-white dark:text-white`} style={{backgroundColor: tag?.color}}>
                   {tag.title}
                 </div>
               ))}

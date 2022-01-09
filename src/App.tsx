@@ -5,7 +5,7 @@ import QueryProvider from "./providers/QueryProvider";
 function App() {
   const routes = createRoutes();
   setAxiosConfig();
-
+  
   return (
     <QueryProvider>
       <div className='flex flex-col items-center w-screen h-screen bg-white dark:bg-gray-800 overflow-hidden'>

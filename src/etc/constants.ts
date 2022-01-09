@@ -47,8 +47,8 @@ export const MOCK_DATA = [
     createdAt: Date.now(),
     updatedAt: Date.now(),
     tags: [
-      { title: "React", color: "sky" },
-      { title: "Typescript", color: "blue" }
+      { title: "React", color: "#38bdf8" },
+      { title: "Typescript", color: "#2563eb" }
     ],
     id: 1
   },
@@ -62,8 +62,8 @@ export const MOCK_DATA = [
     createdAt: Date.now(),
     updatedAt: Date.now(),
     tags: [
-      { title: "Vue", color: "green" },
-      { title: "Javascript", color: "yellow" }
+      { title: "Vue", color: "#16a34a" },
+      { title: "Javascript", color: "#fde047" }
     ],
     id: 2
   }
