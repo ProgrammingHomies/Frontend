@@ -16,7 +16,7 @@ const Code = ({ code, language }: propTypes): JSX.Element => {
   return (
     <pre className='h-full w-full flex justify-center items-center'>
       <code
-        className={`block whitespace-pre overflow-x-scroll language-${language}`}>
+        className={`block whitespace-pre overflow-x-hidden language-${language}`}>
         {code}
       </code>
     </pre>

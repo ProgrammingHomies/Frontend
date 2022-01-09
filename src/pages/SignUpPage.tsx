@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Code from "../components/Code/Code";
 import Header from "../components/Header";
+import { CODE_EXAMPLE } from "../etc/constants";
 import useAuthStore from "../stores/AuthStore";
 
 function SignUpPage() {
@@ -27,7 +29,7 @@ function SignUpPage() {
       <Header></Header>
       <div className='container h-full flex flex-row justify-center items-center'>
         <div className='hidden lg:flex lg:w-1/2 items-center justify-center'>
-          <h1 className='text-center'>SignUp Image</h1>
+          <Code code={CODE_EXAMPLE} language={"javascript"} />
         </div>
         <motion.div
           className='flex flex-col w-3/4 lg:w-1/2 mx-auto lg:mx-0'
