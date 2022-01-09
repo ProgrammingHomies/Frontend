@@ -15,6 +15,7 @@ import PostsPage from "../pages/PostsPage";
 import useAuthStore from "../stores/AuthStore";
 import PostList from "../components/PostList";
 import PostDetail from "../components/PostDetail";
+import MyPostsPage from "../pages/MyPostsPage";
 
 type ProtectedRouteProps = {
   children: JSX.Element;
@@ -57,6 +58,13 @@ const createRoutes = () => {
               </ProtectedRoute>
             }></Route>
         </Route>
+        <Route
+          path='/myposts'
+          element={
+            <ProtectedRoute>
+              <MyPostsPage />
+            </ProtectedRoute>
+          }></Route>
         <Route
           path='/signout'
           element={<ProtectedRoute>{<SignOut />}</ProtectedRoute>}
