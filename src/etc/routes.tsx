@@ -13,6 +13,7 @@ import SignOut from "../pages/SignOut";
 import SignUpPage from "../pages/SignUpPage";
 import PostsPage from "../pages/PostsPage";
 import useAuthStore from "../stores/AuthStore";
+import ProfilePage from "../pages/ProfilePage";
 import PostList from "../components/PostList";
 import PostDetail from "../components/PostDetail";
 import MyPostsPage from "../pages/MyPostsPage";
@@ -65,6 +66,14 @@ const createRoutes = () => {
               <MyPostsPage />
             </ProtectedRoute>
           }></Route>
+        <Route
+          path='/me'
+          element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path='/signout'
           element={<ProtectedRoute>{<SignOut />}</ProtectedRoute>}
